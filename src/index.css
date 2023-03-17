@@ -12,6 +12,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+/* font sizes */
+    --font-size-lg: 18px;
+    --font-size-27xl: 46px;
+    --font-size-base: 16px;
+    --font-size-7xl: 26px;
+
+    /* Colors */
+    --color-gray-100: #111;
+    --color-forestgreen: #1db954;
+    --color-whitesmoke: #eceded;
+    --color-darkgray: #9ca9b3;
+
+    /* border radiuses */
+    --br-31xl: 50px;
 }
 
 a {
@@ -37,7 +52,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--br-31xl);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -66,8 +81,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.spotifyLogin:hover {
-    background-color: #1ed660;
 }

@@ -5,7 +5,44 @@
   text-align: center;
 }
 
+.logInWith,
+.musiconn {
+  font-weight: 600;
+  display: inline-block;
+}
+
+.musiconn {
+  position: absolute;
+  top: 5%;
+  left: 4%;
+  font-size: 36px;
+  letter-spacing: 0.06em;
+  /* font-family: var(--font-open-sans); */
+  color: var(--color-forestgreen);
+  width: 243px;
+}
+
+.logInWith {
+  position: relative;
+  /* padding: 10px 15px; */
+}
+
+.logInWithSpotifyWrapper {
+  position: absolute;
+  top: 5%;
+  right: 7%;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-forestgreen);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--color-gray-100);
+}
+
 .logo {
+  margin-top: 15%;
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -16,6 +53,20 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.tagline {
+  font-size: 20px;
+  font-weight: 600
+}
+
+.desc-container {
+  font-size: 16px;
+}
+
+.desc {
+  width: 60%;
+  margin: 0 auto;
 }
 
 @keyframes logo-spin {
@@ -34,7 +85,13 @@
 }
 
 .card {
+  margin-top: 20px;
   padding: 2em;
+}
+
+.spotifyLogin:hover, .logInWithSpotifyWrapper:hover {
+  background-color: var(--color-forestgreen);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 .read-the-docs {
