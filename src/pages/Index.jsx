@@ -1,9 +1,10 @@
 import spotifyLogo from "../assets/spotify.svg"
 import "../App.css"
+import { onPageLoad } from "./Config"
 
 function Index() {
   return (
-    <div className="App">
+    <div className="App" onLoad={onPageLoad}>
       <div className="musiconn">MusiConn</div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
