@@ -26,10 +26,10 @@ export const CurrentTrack = () => {
       setAlbumName(data.item.album.name);
     };
     getTrack();
-    // auto-update current-track for every 5sec
+    // auto-update current-track for every 1.5sec
     const interval = setInterval(() => {
       getTrack();
-    }, 5000); // call getTrack every 10 seconds
+    }, 1500); // call getTrack every 1.5 seconds
   }, []);
 
   return (
