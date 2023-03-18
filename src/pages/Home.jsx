@@ -1,6 +1,6 @@
 import spotifyLogo from "../assets/spotify.svg"
 import "../App.css"
-import { requestAuthorization } from "./Config"
+import { requestAuthorization } from "./config"
 
 function Home() {
   return (

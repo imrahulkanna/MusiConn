@@ -16,8 +16,7 @@
   top: 5%;
   left: 4%;
   font-size: 36px;
-  letter-spacing: 0.06em;
-  /* font-family: var(--font-open-sans); */
+  font-weight: bolder;
   color: var(--color-forestgreen);
   width: 243px;
 }

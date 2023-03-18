@@ -1,10 +1,8 @@
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const clientId = '874f362955384d4f82bcd802660e4b0c';
-const clientSecret = 'acb440a270aa451694ca257703ae07e9';
+const clientSecret = 'c03782320ae14b19a77ee860286d0853';
 const redirectURI = 'http://localhost:5173/app';
-var accessToken = null;
-var refreshToken = null;
 
 
 const scopes = [
@@ -31,13 +29,11 @@ const scopes = [
 
 // authorizing code
 export const requestAuthorization = () => {
-  localStorage.setItem("client_id", clientId);
-  localStorage.setItem("client_secret", clientSecret);
   let url = authEndpoint;
   url += "?client_id=" + clientId;
   url += "&response_type=code";
   url += "&redirect_uri=" + encodeURI(redirectURI);
-  url += "&show_dialog=false";
+  url += "&show_dialog=true";
   url += "&scope=" + scopes.join("%20");
   window.location.href = url;
 }
@@ -50,15 +46,16 @@ function handleAuthorizationResponse(xhr) {
     if ( xhr.status == 200 ){
         var data = JSON.parse(xhr.responseText);
         console.log(data);
-        var data = JSON.parse(xhr.responseText);
         if ( data.access_token != undefined ){
-            accessToken = data.access_token;
-            localStorage.setItem("accessToken", accessToken);
+            var accessToken = data.access_token;
+            localStorage.setItem('accessToken', accessToken)
         }
         if ( data.refresh_token  != undefined ){
-            refreshToken = data.refresh_token;
-            localStorage.setItem("refreshToken", refreshToken);
+            var refreshToken = data.refresh_token;
+            localStorage.setItem('refreshToken', refreshToken)
         }
+        console.log('on config: '+accessToken);
+        console.log('on config: '+refreshToken);
         onPageLoad();
     }
     else {
