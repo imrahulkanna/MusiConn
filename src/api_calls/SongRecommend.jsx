@@ -3,7 +3,7 @@ import "./SongRecommend.css"
 
 
 const currentTrackEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
-const recommendationEndPoint = 'https://api.spotify.com/v1/recommendations?limit=12&seed_tracks='
+const recommendationEndPoint = 'https://api.spotify.com/v1/recommendations?limit=20&seed_tracks='
 
 export const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([]);

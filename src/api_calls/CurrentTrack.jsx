@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./CurrentTrack.css";
 
+import { collection, getDocs, doc, setDoc} from "firebase/firestore"; 
+import { db } from "../../Firebase";
 
 const currentTrackEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
 
@@ -26,6 +28,9 @@ export let CurrentTrack = () => {
       setAlbumName(data.item.album.name);
     };
     getTrack();
+    // FireStoreWrite will happend once after getTrack()
+    FireStoreWrite();
+    
     // auto-update current-track for every 1.5sec
     const interval = setInterval(() => {
       getTrack();
@@ -44,3 +49,51 @@ export let CurrentTrack = () => {
     </div>
   );
 };
+
+// *** Below Code will run whenver user LogsIn ***
+// code for updating fireBase FireStorage {userId->(accessToken, refreshToken)}
+
+let FireStoreWrite =async () =>{
+let accessToken = localStorage.getItem('accessToken');
+let refreshToken = localStorage.getItem('refreshToken');
+// console.log(accessToken);
+// console.log(refreshToken);
+  const getCurrentUserId = async (accessToken) => {
+    const response = await fetch('https://api.spotify.com/v1/me', {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken
+      }
+    });
+    const data = await response.json();
+    return data.id;
+  }
+  const userId = await getCurrentUserId(accessToken);
+// console.log(userId);
+
+  const collectionRef = collection(db, "users");
+  const documentsSnapshot = await getDocs(collectionRef);
+  const documentsData = [];
+  documentsSnapshot.forEach((doc) => {
+    documentsData.push({ id: doc.id, ...doc.data() });
+  });
+
+console.log("users");
+console.log(documentsData);
+
+
+async function storeTokens(userId, accessToken, refreshToken) {
+  const userDocRef = doc(collection(db, 'users'), userId.toString());
+  const userDocData = {
+    access_token: accessToken,
+    refresh_token: refreshToken
+  };
+
+  await setDoc(userDocRef, userDocData);
+  console.log("Document written with ID: ", userId);
+
+}
+
+await  storeTokens(userId, accessToken, refreshToken)
+
+};
+
