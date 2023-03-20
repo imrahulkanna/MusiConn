@@ -1,14 +1,19 @@
-import spotifyLogo from "../assets/spotify.svg"
+import { onPageLoad } from "./config"
+import { Link } from "react-router-dom";
+import { CurrentTrack } from "../api_calls/CurrentTrack"
 import "../App.css"
-import { onPageLoad } from "./Config"
-import { CurrentTrack } from "./SpotifyApiCalls"
 
 function Index() {
   onPageLoad();
   return (
     <div className="App">
       <div className="musiconn">MusiConn</div>
-      <h1>MusiConn</h1>
+      <Link to='/recommendations'>
+        <button className="recommendSongsWrapper">
+          <div className="recommendSongs">Recommendations</div>
+        </button>
+      </Link>
+      <h1>Current Track</h1>
       <CurrentTrack />
     </div>
   )

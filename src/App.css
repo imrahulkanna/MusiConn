@@ -6,7 +6,8 @@
 }
 
 .logInWith,
-.musiconn {
+.musiconn,
+.recommendSongs {
   font-weight: 600;
   display: inline-block;
 }
@@ -38,6 +39,12 @@
   justify-content: center;
   font-size: 18px;
   color: var(--color-gray-100);
+}
+
+.recommendSongsWrapper {
+  position: absolute;
+  top: 5%;
+  right: 7%;
 }
 
 .logo {

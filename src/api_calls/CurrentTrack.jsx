@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import "./SpotifyApiCalls.css"
+import "./CurrentTrack.css";
 
 
-const currentTrackendpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
-export const CurrentTrack = () => {
+const currentTrackEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
 
+export let CurrentTrack = () => {
   const [trackName, setTrackName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [artistName, setArtistName] = useState('');
@@ -14,7 +14,7 @@ export const CurrentTrack = () => {
     let accessToken = localStorage.getItem('accessToken');
     console.log('on api page: '+accessToken)
     const getTrack = async () => {
-      const response = await fetch(currentTrackendpoint, {
+      const response = await fetch(currentTrackEndpoint, {
         headers: {
           'Authorization': 'Bearer ' + accessToken
         }
@@ -30,6 +30,7 @@ export const CurrentTrack = () => {
     const interval = setInterval(() => {
       getTrack();
     }, 1500); // call getTrack every 1.5 seconds
+    return () => clearInterval(interval); // clear interval on unmount
   }, []);
 
   return (
