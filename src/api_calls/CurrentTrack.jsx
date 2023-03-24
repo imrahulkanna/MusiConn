@@ -65,10 +65,18 @@ let refreshToken = localStorage.getItem('refreshToken');
       }
     });
     const data = await response.json();
-    return data.id;
+    
+    return [data.id, data.email];
   }
-  const userId = await getCurrentUserId(accessToken);
-// console.log(userId);
+  
+  const userData = await getCurrentUserId(accessToken);
+  const userId= userData[0];
+  const emailId= userData[1];
+  console.log(userId);
+  console.log(emailId);
+
+
+
 
   const collectionRef = collection(db, "users");
   const documentsSnapshot = await getDocs(collectionRef);
@@ -77,7 +85,7 @@ let refreshToken = localStorage.getItem('refreshToken');
     documentsData.push({ id: doc.id, ...doc.data() });
   });
 
-console.log("users");
+// console.log("users");
 console.log(documentsData);
 
 
@@ -85,7 +93,8 @@ async function storeTokens(userId, accessToken, refreshToken) {
   const userDocRef = doc(collection(db, 'users'), userId.toString());
   const userDocData = {
     access_token: accessToken,
-    refresh_token: refreshToken
+    refresh_token: refreshToken,
+    email_id: emailId
   };
 
   await setDoc(userDocRef, userDocData);
