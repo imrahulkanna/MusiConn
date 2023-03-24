@@ -72,8 +72,8 @@ let refreshToken = localStorage.getItem('refreshToken');
   const userData = await getCurrentUserId(accessToken);
   const userId= userData[0];
   const emailId= userData[1];
-  console.log(userId);
-  console.log(emailId);
+  // console.log(userId);
+  // console.log(emailId);
 
 
 
@@ -86,7 +86,7 @@ let refreshToken = localStorage.getItem('refreshToken');
   });
 
 // console.log("users");
-console.log(documentsData);
+// console.log(documentsData);
 
 
 async function storeTokens(userId, accessToken, refreshToken) {
