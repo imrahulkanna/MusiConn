@@ -10,10 +10,10 @@ function Index() {
       <div className="musiconn">MusiConn</div>
       <Link to='/recommendations'>
         <button className="recommendSongsWrapper">
-          <div className="recommendSongs">Recommendations</div>
+          Recommendations
         </button>
       </Link>
-      <h1>Current Track</h1>
+      <h1 className="trackHeader">Current Track</h1>
       <CurrentTrack />
     </div>
   )

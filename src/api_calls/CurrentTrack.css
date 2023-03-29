@@ -12,3 +12,25 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+@media screen and (max-width: 550px) {
+  .currTrackImg {
+    width: 70%;
+  }
+  
+}
+
+
+@media screen and (max-width: 410px) {
+  .currTrackImg {
+    width: 80%;
+  }
+  
+  .currTrackName {
+    font-size: 22px;
+  }
+
+  .currTrackDesc {
+    font-size: 14px;
+  }
+}

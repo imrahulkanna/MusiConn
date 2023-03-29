@@ -1,9 +1,20 @@
 import { useState, useEffect } from "react";
 import "./SongRecommend.css"
-
+import spotifyLogo from '../assets/spotify.svg';
 
 const currentTrackEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
 const recommendationEndPoint = 'https://api.spotify.com/v1/recommendations?limit=20&seed_tracks='
+
+function Image({name, data}) {
+  var i=0;
+  for(i=0;i<data.length;i++) {
+    if(typeof (data[i].url) !== "undefined") {
+      return <img src={data[i].url} alt={name} />
+    }
+  }
+
+  return <img src={spotifyLogo} alt={name} />
+}
 
 export const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -39,10 +50,10 @@ export const Recommendations = () => {
       <h1 className="recomTitle">Recommended Songs</h1>
       <ul>
         <div className="recomContainer">
-        {recommendations.map((track) => (
-          <li key={track.id} className="recomTile">
+        {recommendations.map((track,index) => (
+          <li key={index} className="recomTile">
             <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
-            <img src={track.album.images[0].url} alt={track.album.name} />
+            <Image data = {track.album.images} name = {track.name} />
             <div>
               <p>{track.name}</p>
               <p>{track.artists[0].name}</p>

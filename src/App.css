@@ -6,8 +6,7 @@
 }
 
 .logInWith,
-.musiconn,
-.recommendSongs {
+.musiconn {
   font-weight: 600;
   display: inline-block;
 }
@@ -45,6 +44,7 @@
   position: absolute;
   top: 5%;
   right: 7%;
+  font-weight: bolder;
 }
 
 .logo {
@@ -102,4 +102,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@media screen and (max-width: 500px){
+  .recommendSongsWrapper {
+      font-size: 14px;
+    }
+  
+    .musiconn {
+      font-size: 24px;
+      left: -5%;
+    }
+  
+    .trackHeader {
+      font-size: 36px;
+    }
+  
 }
