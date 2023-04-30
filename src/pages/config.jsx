@@ -2,7 +2,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const clientId = '874f362955384d4f82bcd802660e4b0c';
 const clientSecret = 'c03782320ae14b19a77ee860286d0853';
-const redirectURI = 'https://musiconn.in/app';
+const redirectURI = 'http://localhost:5173/app';
 
 
 const scopes = [
@@ -74,6 +74,17 @@ function callAuthorizationApi(body){
   xhr.onload = function() {
     handleAuthorizationResponse(xhr);
   };
+}
+
+export function refreshAccessToken() {
+  console.log('enter refreshtoken function')
+  let refreshToken = localStorage.getItem('refreshToken');
+  let body = "grant_type=refresh_token";
+  body += "&refresh_token=" + refreshToken;
+  body += "&client_id=" + clientId;
+  body += "&client_secret=" + clientSecret;
+
+  callAuthorizationApi(body);
 }
 
 function fetchAccessToken(code) {

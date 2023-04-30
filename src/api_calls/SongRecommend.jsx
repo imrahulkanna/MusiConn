@@ -53,11 +53,11 @@ export const Recommendations = () => {
         {recommendations.map((track,index) => (
           <li key={index} className="recomTile">
             <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
-            <Image data = {track.album.images} name = {track.name} />
-            <div>
-              <p>{track.name}</p>
-              <p>{track.artists[0].name}</p>
-            </div>
+              <Image data = {track.album.images} name = {track.name} />
+              <div>
+                <p>{track.name}</p>
+                <p>{track.artists[0].name}</p>
+              </div>
             </a>
           </li>
         ))}

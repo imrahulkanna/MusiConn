@@ -10,9 +10,7 @@ function Home() {
         <div className="logInWith">Log in with Spotify</div>
       </button>       
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={spotifyLogo} className="logo" alt="Spotify logo" />
-        </a>
+        <img src={spotifyLogo} className="logo" alt="Spotify logo" />
       </div>
       <h1>MusiConn</h1>
       <div className="desc-container">

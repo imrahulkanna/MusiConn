@@ -8,7 +8,7 @@ function Index() {
   return (
     <div className="App">
       <div className="musiconn">MusiConn</div>
-      <Link to='/recommendations'>
+      <Link to='/trackrecommendations'>
         <button className="recommendSongsWrapper">
           Recommendations
         </button>

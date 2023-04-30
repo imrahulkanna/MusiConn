@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { refreshAccessToken } from "../pages/config";
 import "./CurrentTrack.css";
 
 import { collection, getDocs, doc, setDoc} from "firebase/firestore"; 
@@ -23,6 +25,11 @@ export let CurrentTrack = () => {
           'Authorization': 'Bearer ' + accessToken
         }
       });
+      if (response.status === 401) {
+        refreshAccessToken();
+        accessToken = localStorage.getItem('accessToken');
+        await getTrack();
+      }
       const data = await response.json();
       setTrackName(data.item.name);
       setImageUrl(data.item.album.images[0].url);

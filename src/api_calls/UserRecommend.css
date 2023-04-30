@@ -1,0 +1,64 @@
+.title {
+  margin: 80px 0px 0px 0px;
+}
+
+.prompt {
+  font-size: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.profile-card {
+  width: 185px;
+  height: 270px;
+  border-radius: 5%;
+  /* border: 1px solid red; */
+  margin: 0px 0px 25px 0px;
+  background-color: #303030;
+}
+
+.profile-card:hover {
+  background-color: #404040;
+  filter: drop-shadow(0 0 0.5em #777e80aa);
+}
+
+.img-container {
+  height: 185px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  border-radius: 100%;
+}
+
+.text-container {
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.profile-name {
+  width: 185px;
+  margin: 0px;
+  color: white;
+}
+
+.add-friend {
+  text-align: center;
+  margin: 0px;
+  width: 150px;
+  background-color: #242424;
+}
+
+/* .add-friend:hover {
+  border: 2px;
+} */

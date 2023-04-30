@@ -75,6 +75,10 @@
   margin: 0 auto;
 }
 
+.trackHeader {
+  margin-top: 80px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
