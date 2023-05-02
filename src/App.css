@@ -40,13 +40,6 @@
   color: var(--color-gray-100);
 }
 
-.recommendSongsWrapper {
-  position: absolute;
-  top: 5%;
-  right: 7%;
-  font-weight: bolder;
-}
-
 .logo {
   margin-top: 15%;
   height: 6em;
@@ -75,9 +68,7 @@
   margin: 0 auto;
 }
 
-.trackHeader {
-  margin-top: 80px;
-}
+
 
 @keyframes logo-spin {
   from {

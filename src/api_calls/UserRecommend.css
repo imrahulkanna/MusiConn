@@ -2,6 +2,12 @@
   margin: 80px 0px 0px 0px;
 }
 
+.outer-container {
+  width: 60vw;
+  margin: 0 auto;
+  padding: 30px;
+}
+
 .prompt {
   font-size: 20px;
 }
@@ -10,7 +16,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  background-color: #404040;
+  padding-top: 25px;
+  border-radius: 20px;
 }
 
 .profile-card {
@@ -36,6 +45,7 @@
 
 .profile-img {
   width: 150px;
+  height: 150px;
   border-radius: 100%;
 }
 
@@ -49,6 +59,13 @@
 .profile-name {
   width: 185px;
   margin: 0px;
+}
+
+.profile-name a{
+  color: white;
+}
+
+.profile-name a:hover {
   color: white;
 }
 

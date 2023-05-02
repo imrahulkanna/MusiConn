@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./SongRecommend.css"
+import { refreshAccessToken } from "../pages/config";
 import spotifyLogo from '../assets/spotify.svg';
 
 const currentTrackEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing';
@@ -27,6 +28,11 @@ export const Recommendations = () => {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
       });
+      if (currentTrackResponse.status === 401) {
+        refreshAccessToken();
+        accessToken = localStorage.getItem("accessToken");
+        await getCurrentTrack();
+      }
       const currentTrackData = await currentTrackResponse.json();
 
       // Get recommendations based on the user's currently playing track
@@ -35,6 +41,11 @@ export const Recommendations = () => {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
       });
+      if(recommendationsResponse.status === 401) {
+        refreshAccessToken();
+        accessToken = localStorage.getItem("accessToken");
+        await getCurrentTrack();
+      }
       const recommendationsData = await recommendationsResponse.json();
 
       // Set the state with the recommended tracks

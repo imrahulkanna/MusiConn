@@ -1,13 +1,14 @@
-import "../App.css"
+import "../App.css";
+import { NavBar } from "../api_calls/NavBar.jsx";
 import UserRecommend from "../api_calls/UserRecommend";
 
 function UserRecommendation() {
   return (
     <div className="App">
-      <div className="musiconn">MusiConn</div>
+      <NavBar />
       <UserRecommend />
     </div>
   )
 }
 
-export default UserRecommendation
+export default UserRecommendation;

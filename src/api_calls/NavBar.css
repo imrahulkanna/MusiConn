@@ -1,0 +1,90 @@
+ul {
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.navbar {
+  margin-top: 50px;   
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.navTitle {
+  font-size: 36px;
+  font-weight: bolder;
+  color: var(--color-forestgreen);
+}
+
+.navButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navButton {
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.drop-down {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.navButton:hover .drop-down {
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendSongsWrapper {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+
+/* nav ul li {
+  position: relative;
+} */
+
+/* nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+} */
+
+
+/* nav ul li ul {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+} */
+
+nav ul li:hover ul {
+  display: flex;
+  flex-direction: column;
+}

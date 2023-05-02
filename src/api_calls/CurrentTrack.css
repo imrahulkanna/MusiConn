@@ -1,6 +1,10 @@
+.trackHeader {
+  margin-top: 80px;
+}
+
 .currTrackImg {
   border-radius: 10px;
-  width: 50%;
+  width: 40%;
 }
 
 .currTrackName {
@@ -15,11 +19,9 @@
 
 @media screen and (max-width: 550px) {
   .currTrackImg {
-    width: 70%;
+    width:  70%;
   }
-  
 }
-
 
 @media screen and (max-width: 410px) {
   .currTrackImg {

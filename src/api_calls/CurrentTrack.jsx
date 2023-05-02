@@ -49,8 +49,9 @@ export let CurrentTrack = () => {
 
   return (
     <div>
-      <img className='currTrackImg' src={imageUrl} alt={trackName} />
-      <p className='currTrackName'>{trackName}</p>
+      <h1 className="trackHeader">Current Track</h1>
+      <img className="currTrackImg" src={imageUrl} alt={trackName} />
+      <p className="currTrackName">{trackName}</p>
       <div className="currTrackDesc">
         <p>Album: {albumName}</p>
         <p>Artist: {artistName}</p>
