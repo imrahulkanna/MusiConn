@@ -3,6 +3,7 @@ import Recommendation from './pages/Recommendation';
 import Home from "./pages/Home";
 import Index from './pages/Index';
 import UserRecommendation from "./pages/UserRecommendation";
+import Page from "./pages/Page";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path='/app' element={<Index />} />
       <Route path='/trackrecommendations' element={<Recommendation />} />
       <Route path='/userrecommendations' element={<UserRecommendation />} />
+      <Route path='/profile/:userId' element={<Page />} />
     </Routes>
     
   )

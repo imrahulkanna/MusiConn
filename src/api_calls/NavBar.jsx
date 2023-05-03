@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css"
+import "./CurrentTrack.jsx"
 
 export let NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -8,6 +9,7 @@ export let NavBar = () => {
   const handleMenuToggle = () => {
     setShowMenu(!showMenu);
   };
+  const userId = localStorage.getItem('userId');
 
   return (
     <nav>
@@ -26,6 +28,9 @@ export let NavBar = () => {
           </li>
           <li>
             <Link to="/trackrecommendations">Recommend Tracks</Link>
+          </li>
+          <li>
+            <Link to={`/profile/${userId}`}>My Profile</Link>
           </li>
         </ul>
       </div>
