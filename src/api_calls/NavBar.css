@@ -1,90 +1,98 @@
-ul {
-  margin: 0px;
-  padding-left: 0px;
+
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+
 }
 
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navbar */
 .navbar {
-  margin-top: 50px;   
+  position: absolute;
+  top: 5%;
+  right: 7%;
+  margin: 0;
+  padding: 0;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  font-size: 18px;
   color: #fff;
-  padding: 0 100px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
 }
 
+.navbar li{
+  border-radius: var(--br-31xl);
+  padding: 15px;
+  
+}
+
+.navbar.active {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  padding: 25px;
+  
+  background-color: #222;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.navbar li {
+  margin-left: 30px;
+;
+}
 .navTitle {
   font-size: 36px;
   font-weight: bolder;
   color: var(--color-forestgreen);
-}
-
-.navButtonsWrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navButton {
-  cursor: pointer;
-  position: relative;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.drop-down {
-  list-style: none;
-  display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-}
-
-.navButton:hover .drop-down {
-  display: flex;
-  flex-direction: column;
-}
-
-.recommendSongsWrapper {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+  top: 5%;
+  left: 4%;
 }
 
 
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
 
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
 
-/* nav ul li {
-  position: relative;
-} */
+  .hamburger {
+    display: flex;
+  }
 
-/* nav ul li a {
-  display: block;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-} */
+  .navbar.active {
+    left: 0;
+    margin-top: 20%;
+    display: flex;
+  }
 
+  .navbar li {
+    margin: 10px 0;
+  }
 
-/* nav ul li ul {
-  list-style: none;
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-} */
-
-nav ul li:hover ul {
-  display: flex;
-  flex-direction: column;
+  .navTitle{
+    position: absolute;
+    right: 0;
+    top: 25px;   
+  }
 }

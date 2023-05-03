@@ -56,6 +56,8 @@ export let CurrentTrack = () => {
         <p>Album: {albumName}</p>
         <p>Artist: {artistName}</p>
       </div>
+
+    
     </div>
   );
 };
@@ -80,7 +82,7 @@ let refreshToken = localStorage.getItem('refreshToken');
   }
   
   const userData = await getCurrentUserId(accessToken);
-  const userId= userData[0];
+ const userId= userData[0];
   const emailId= userData[1];
   // console.log(userId);
   // console.log(emailId);
@@ -137,7 +139,7 @@ const getCurrentTracksFn = async (accessToken) => {
   return data5;
 }
 
-const currTrack = await getCurrentTracksFn(accessToken);
+ const currTrack = await getCurrentTracksFn(accessToken);
 
   const collectionRef = collection(db, "users");
   const documentsSnapshot = await getDocs(collectionRef);
@@ -188,6 +190,7 @@ async function storeTokens(userId, accessToken, refreshToken) {
 
    }).then(() => {
      console.log('User data stored successfully');
+    //  console.log(userProfile.images[0].url);
    }).catch((error) => {
      console.log('Error storing user data: ', error);
    });
@@ -196,6 +199,5 @@ async function storeTokens(userId, accessToken, refreshToken) {
 
 await  storeTokens(userId, accessToken, refreshToken)
 
+
 };
-
-
