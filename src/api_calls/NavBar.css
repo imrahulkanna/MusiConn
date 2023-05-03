@@ -8,6 +8,7 @@
   width: 30px;
   height: 25px;
   cursor: pointer;
+  margin-top: 30px;
 
 }
 
@@ -81,8 +82,9 @@
   }
 
   .navbar.active {
+
     left: 0;
-    margin-top: 20%;
+    margin-top: 24%;
     display: flex;
   }
 
@@ -91,8 +93,16 @@
   }
 
   .navTitle{
-    position: absolute;
+    position: relative;
     right: 0;
-    top: 25px;   
+    top: 20px;   
+
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navbar.active {
+    margin-top: 29%;
+
   }
 }
