@@ -13,12 +13,13 @@ function ProfilePage() {
 
     return(
         <div>
-            <h1>This is {userId}'s page</h1>
+            {/* <h1>This is {userId}'s page</h1> */}
             
       <UserContainer />
-
-        {/* <ArtistContainer />
-        <TopTracksContainer /> */}
+      <div className="topContainer">
+      <ArtistContainer />
+        <TopTracksContainer />
+        </div>
 
         </div>
       );
