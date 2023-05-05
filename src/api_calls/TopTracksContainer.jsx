@@ -37,7 +37,7 @@ const TopTracksContainer = () => {
              {topTracks && topTracks.slice(0, 12).map((track, index) => (
                <a href={track.external_urls.spotify}>
                     <div className="track" key={index}>
-                        <img src={track.album.images[0].url} alt={track.name} />
+                        <img src={track.album.images? track.album.images[0].url:"/public/luffy.jpeg"} alt={track.name} />
                         <div className="trackInfo">
                         <p className="trackName">{track.name}</p>
                         <div className="artistNames">

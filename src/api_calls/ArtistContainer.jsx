@@ -36,7 +36,7 @@ const ArtistContainer = () => {
              {topArtists && topArtists.slice(0, 13).map((artist, index) => (
                 <a href={artist.external_urls.spotify}>
                     <div className="artist" key={index}>
-                        <img  src={artist.images[0].url} alt={artist.name} />
+                        <img  src={artist.images? artist.images[0].url: "/public/luffy.jpeg"} alt={artist.name} />
                         <p>{artist.name}</p>
                     </div>
                 </a>
