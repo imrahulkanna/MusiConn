@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from  "../../Firebase";
 import { useLocation } from "react-router-dom"
+import "./ChatView.css"
 
 import {
   collection,
@@ -64,12 +65,12 @@ const ChatView = (props) => {
   return (
     <div>
       <div>
-        <h1>chatting with {userName.toUpperCase()}</h1>
+        <h1 className="chatHeader">@{userName.toUpperCase()}</h1>
       </div>
-      <div>
+      <div className="messageBox" >
         {messages.map((message) => (
-          <div key={message.id} >
-            <span className="user">{message.from}:</span> {message.text} {message.createdAt.toDate().toLocaleTimeString()}  {message.createdAt.toDate().toLocaleDateString()}
+          <div className={`message ${message.from=== userId ? "sent" : "received"}`} key={message.id} >
+            <span className="user">{message.from=== userId ? "You" :  `${userName}` }</span><br /> <span className="textBody">{message.text}</span><br /> <span className="textTime">{message.createdAt.toDate().toLocaleTimeString()}  {message.createdAt.toDate().toLocaleDateString()}<br /><br /> </span> 
           </div>
         ))}
       </div>
