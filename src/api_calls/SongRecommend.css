@@ -1,16 +1,12 @@
 .recomTitle {
-  margin-top: 120px;
-}
-
-ul {
-  margin-left: -40px;
+  margin-top: 80px;
 }
 
 .recomContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .recomTile {
@@ -85,8 +81,9 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
- .recomTitle{
-  margin-top: 60px !important;;
-  font-size: 40px;
- }
+  .recomTitle {
+    margin-top: 60px !important;
+    ;
+    font-size: 40px;
+  }
 }

@@ -2,8 +2,8 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const clientId = '874f362955384d4f82bcd802660e4b0c';
 const clientSecret = 'c03782320ae14b19a77ee860286d0853';
-const redirectURI = 'https://musiconn.in/app';
-// const redirectURI = 'http://localhost:5173/app';
+// const redirectURI = 'https://musiconn.in/app';
+const redirectURI = 'http://localhost:5173/app';
 
 
 const scopes = [

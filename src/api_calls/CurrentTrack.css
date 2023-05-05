@@ -4,30 +4,48 @@
 
 .currTrackImg {
   border-radius: 10px;
-  width: 40%;
+  width: 20%;
 }
 
 .currTrackName {
   font-weight: bolder;
   font-size: 26px;
+  margin: 15px 0 0;
 }
 
 .currTrackDesc {
   font-weight: bold;
   font-size: 18px;
+  margin-top: 10px;
+}
+
+.currTrackAlbum {
+  margin: 0;
+}
+
+.currTrackArtists {
+  margin: 5px 0px 15px;
 }
 
 @media screen and (max-width: 550px) {
   .currTrackImg {
-    width:  70%;
+    width: 50%;
+  }
+
+  .currTrackName {
+    font-size: 22px;
+  }
+
+  .currTrackDesc {
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 410px) {
   .currTrackImg {
-    width: 80%;
+    width: 60%;
   }
-  
+
   .currTrackName {
     font-size: 22px;
   }

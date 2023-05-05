@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+.chat-app-room {
+  max-width: 728px;
+  margin: 0 auto;
+  margin-top: 50px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+  /* border-radius: 10px; */
+  overflow-y: scroll;
+  height: calc(77vh - 5px);
+  /* border: 1px solid #3b5998; */
+  /* position: relative; */
+}
+
+.chat-app-room::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.chat-app-room::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+.chat-app-room::-webkit-scrollbar-thumb {
+  background: var(--color-forestgreen);
+}
+
+.header-room {
+  background-color: var(--color-forestgreen);
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  max-width: 728px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  /* height: min(8vh,60px); */
+  height: 60px;
+}
+
+.header-room h1 {
+  font-size: 28px;
+}
+
+.messages-room {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  
+}
+
+.message-room {
+  max-width: 500px;
+  /* border: 1px solid yellow; */
+  margin-bottom: 10px;
+  padding: 5px 20px 5px 10px;
+  text-align: left;
+  border-radius: 7px;
+  background-color: #373737;
+}
+
+
+.user-room {
+  /* margin-right: 10px; */
+  font-size: 12px;
+  margin: 0;
+  /* border: 1px solid blue; */
+}
+
+.message-text-room {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  /* border: 1px solid green; */
+}
+
+
+.new-message-form-room {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 728px;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+}
+
+.new-message-input-room {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.send-button-room {
+  border: none;
+  outline: none;
+  background: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
