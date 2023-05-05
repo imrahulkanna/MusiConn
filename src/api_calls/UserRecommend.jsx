@@ -83,7 +83,7 @@ function UserRecommend() {
                     src={
                       userDetails.images.length > 0
                         ? userDetails.images[0].url
-                        : "/public/luffy.jpeg"
+                        : "./public/luffy.jpeg"
                     }
                     alt="profile pic"
                     className="profile-img"

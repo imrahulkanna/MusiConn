@@ -18,6 +18,8 @@ function App() {
       <Route path='/userrecommendations' element={<UserRecommendation />} />
       <Route path='/chatlist' element={<ChatList />} />
       <Route path='/chatview' element={<ChatView />} />
+      <Route path='/chatroom' element={<ChatRoom />} />
+
       <Route path='/profile/:userId' element={<Page />} />
     </Routes>
   );
