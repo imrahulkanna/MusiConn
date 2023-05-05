@@ -1,0 +1,38 @@
+.userContain{
+    margin-top: 120px;
+}
+
+.profilePic{
+    border-radius:50%;
+    max-width: 200px;
+        
+}
+.profilePic:hover{
+    filter: drop-shadow(0 0 2em var(--color-forestgreen));
+}
+
+
+.userStats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.followingCount, .followersCount{
+    margin: 10px 20px;
+    display: inline-block !important;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.userStats .statCount {
+    font-weight: bold;
+    font-size: 20px;
+    color:var(--color-forestgreen);
+  }
+
+.userName:hover{
+    color:var(--color-forestgreen);
+}
+  

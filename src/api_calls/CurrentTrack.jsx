@@ -38,7 +38,7 @@ export let CurrentTrack = () => {
     };
     getTrack();
     // FireStoreWrite will happend once after getTrack()
-    FireStoreWrite();
+FireStoreWrite();
     
     // auto-update current-track for every 1.5sec
     const interval = setInterval(() => {
@@ -56,9 +56,16 @@ export let CurrentTrack = () => {
         <p>Album: {albumName}</p>
         <p>Artist: {artistName}</p>
       </div>
+
+    
     </div>
   );
 };
+
+
+
+
+
 
 // *** Below Code will run whenver user LogsIn ***
 // code for updating fireBase FireStorage {userId->(accessToken, refreshToken)}
@@ -82,6 +89,8 @@ let refreshToken = localStorage.getItem('refreshToken');
   const userData = await getCurrentUserId(accessToken);
   const userId= userData[0];
   const emailId= userData[1];
+
+  localStorage.setItem('userId', userId);
   // console.log(userId);
   // console.log(emailId);
 
@@ -92,10 +101,8 @@ let refreshToken = localStorage.getItem('refreshToken');
       }
     });
     const data2 = await response2.json();
-    
     return data2;
   }
-  
   const userProfile = await userProfileFn(accessToken);
 
   const getFollowedArtists = async (accessToken) => {
@@ -108,10 +115,8 @@ let refreshToken = localStorage.getItem('refreshToken');
     
     return data3;
   }
-  
   const userFollows = await getFollowedArtists(accessToken);
   
-
 const getSavedTracksFn = async (accessToken) => {
   const response4 = await fetch('https://api.spotify.com/v1/me/tracks', {
     headers: {
@@ -122,7 +127,6 @@ const getSavedTracksFn = async (accessToken) => {
   
   return data4;
 }
-
 const savedTracks = await getSavedTracksFn(accessToken);
 
 
@@ -136,8 +140,8 @@ const getCurrentTracksFn = async (accessToken) => {
   
   return data5;
 }
+ const currTrack = await getCurrentTracksFn(accessToken);
 
-const currTrack = await getCurrentTracksFn(accessToken);
 
   const collectionRef = collection(db, "users");
   const documentsSnapshot = await getDocs(collectionRef);
@@ -157,8 +161,28 @@ const currTrack = await getCurrentTracksFn(accessToken);
     const data6= await response6.json();
     return data6.items;
   }
-  const topTracks = await getUserTop('tracks', 'short_term', 10, accessToken);
-const topArtists = await getUserTop('artists', 'long_term', 5, accessToken);
+
+  const topTracksShort = await getUserTop('tracks', 'short_term', 50, accessToken);
+  const topTracksMedium = await getUserTop('tracks', 'medium_term', 50, accessToken);
+  const topTracksLong = await getUserTop('tracks', 'long_term', 50, accessToken);
+
+  
+const topArtistsShort = await getUserTop('artists', 'short_term', 50, accessToken);
+const topArtistsMedium = await getUserTop('artists', 'medium_term', 50, accessToken);
+const topArtistsLong = await getUserTop('artists', 'long_term', 50, accessToken);
+
+const getRecentlyPlayed = async (accessToken) => {
+  const response7 = await fetch('https://api.spotify.com/v1/me/player/recently-played', {
+    headers: {
+      'Authorization': 'Bearer ' + accessToken
+    }
+  });
+  const data7 = await response7.json();
+  
+  return data7;
+}
+const recentlyPlayed = await getRecentlyPlayed(accessToken);
+
 
 // console.log("users");
 // console.log(documentsData);
@@ -183,11 +207,17 @@ async function storeTokens(userId, accessToken, refreshToken) {
      userProfile: userProfile,
      followedArtists: userFollows,
      savedTracks: savedTracks,
-     topTracks: topTracks,
-     topArtists: topArtists
+     topTracksShort: topTracksShort,
+     topTracksMedium: topTracksMedium,
+     topTracksLong: topTracksLong,
+     topArtistsShort: topArtistsShort,
+     topArtistsMedium: topArtistsMedium,
+     topArtistsLong: topArtistsLong,
+     recentlyPlayed: recentlyPlayed
 
    }).then(() => {
      console.log('User data stored successfully');
+    //  console.log(userProfile.images[0].url);
    }).catch((error) => {
      console.log('Error storing user data: ', error);
    });
@@ -197,5 +227,3 @@ async function storeTokens(userId, accessToken, refreshToken) {
 await  storeTokens(userId, accessToken, refreshToken)
 
 };
-
-

@@ -1,0 +1,32 @@
+.artist {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 30px;
+
+  }
+  
+  .artist img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 60px;
+  }
+  
+  .artist h4 {
+    margin: 0;
+
+  }
+  .artist p{
+    font-size:16px;
+    font-weight:bold;
+  }
+
+  .topArtistsContainer {
+    margin-top: 20px;
+    background-color: #15141488;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.309);
+  }
+  

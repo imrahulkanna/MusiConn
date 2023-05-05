@@ -83,3 +83,10 @@ ul {
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 768px) {
+ .recomTitle{
+  margin-top: 60px !important;;
+  font-size: 40px;
+ }
+}

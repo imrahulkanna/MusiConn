@@ -1,0 +1,54 @@
+.track {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 30px;
+
+
+  }
+  
+  .track img {
+
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 60px;
+  }
+  
+  .track h4 {
+    margin: 0;
+
+  }
+  .track p{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom: 0px;
+    margin-top: -1px;
+    text-align: left;
+  }
+
+  .artistNames p{
+    font-size:12px;
+    font-weight: normal;
+    display: inline-block;
+     padding-top: -20px;
+   
+
+    
+  }
+
+  .topTracksContainer {
+    margin-top: 20px;
+    background-color: #15141488;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.309);
+  }
+  
+  
+  .trackInfo{
+    display: block;
+  }
+
+  .artistNames{
+    text-align: left;
+  }
