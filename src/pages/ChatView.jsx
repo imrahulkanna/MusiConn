@@ -70,7 +70,7 @@ const ChatView = (props) => {
       <div className="messageBox" >
         {messages.map((message) => (
           <div className={`message ${message.from=== userId ? "sent" : "received"}`} key={message.id} >
-            <span className="user">{message.from=== userId ? "You" :  `${userName}` }</span><br /> <span className="textBody">{message.text}</span><br /> <span className="textTime">{message.createdAt.toDate().toLocaleTimeString()}  {message.createdAt.toDate().toLocaleDateString()}<br /><br /> </span> 
+            <span className="user">{message.from=== userId ? "You" :  `${userName}` }</span><br /> <span className="textBody">{message.text}</span><br /> <span className="textTime">{message.createdAt?.toDate().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: true})}  {(message.createdAt?.toDate().toLocaleDateString() != (new Date().toLocaleDateString()))?message.createdAt?.toDate().toLocaleDateString():""}<br /><br /> </span> 
           </div>
         ))}
       </div>

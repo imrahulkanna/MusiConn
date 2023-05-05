@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { 
     collection,
+    or,
     where,
     query,
     orderBy,
@@ -45,26 +46,20 @@ let ChatList =  () => {
         getUserData();
 
         const getUserChats = async () => {
-            const queryMessages1 = query(
+            const queryMessages = query(
                 messagesRef,
+                or(
                 where("from", "==", userIdStore),
+                where("to", "==", userIdStore)
+                ),
                 orderBy("createdAt")
             );
-            const queryMessages2 = query(
-                messagesRef,
-                where("to", "==", userIdStore),
-                orderBy("createdAt")
-            );
-            const querySnapshot1 = await getDocs(queryMessages1);
-            const messages1 = querySnapshot1.docs.map((doc) => {
+            
+            const querySnapshot = await getDocs(queryMessages);
+            const messages = querySnapshot.docs.map((doc) => {
                     return {...doc.data(), id: doc.id }
             });
-            const querySnapshot2 = await getDocs(queryMessages2);
-            const messages2 = querySnapshot2.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id }
-            });
-            
-            const messages = [...messages1, ...messages2];
+
             const groups = groupBy(messages, message => {
                 const otherUserId =  message.from === userIdStore
                            ? message.to
@@ -127,7 +122,7 @@ function ChatPreview({ message , userId }) {
             <div>
                 <h2>{displayName}</h2>
                 <p>{text}</p>
-                <p>{createdAt.toDate().toString()}</p>
+                <p>{createdAt?.toDate().toString()}</p>
             </div>
         </Link>
     )

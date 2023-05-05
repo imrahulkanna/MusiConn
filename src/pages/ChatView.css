@@ -1,8 +1,8 @@
 .messageBox {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 110px); /* Height of the header and input form */
-
+    height: calc(100vh - 200px); 
+    overflow-y:scroll; 
   }
 
 .message{
