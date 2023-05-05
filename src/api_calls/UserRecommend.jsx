@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./UserRecommend.css";
 import { refreshAccessToken } from "../pages/config";
+import {Link} from "react-router-dom";
 
 const currUserProfileEndpoint = "https://api.spotify.com/v1/me";
 const userProfileEndpoint = "https://api.spotify.com/v1/users/";
@@ -76,7 +77,8 @@ function UserRecommend() {
           {userDetailsArr.map((userDetails, track) => (
             <div className="profile-card" key={track}>
               <div className="img-container">
-                <a href={`https://open.spotify.com/user/${userDetails.id}`}>
+                <Link to={`/profile/${userDetails.id}`}>
+
                   <img
                     src={
                       userDetails.images.length > 0
@@ -86,13 +88,13 @@ function UserRecommend() {
                     alt="profile pic"
                     className="profile-img"
                   />
-                </a>
+                </Link>
               </div>
               <div className="text-container">
                 <p className="profile-name">
-                  <a href={`https://open.spotify.com/user/${userDetails.id}`}>
+                  <Link to={`/profile/${userDetails.id}`}>
                     {userDetails.display_name}
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <button

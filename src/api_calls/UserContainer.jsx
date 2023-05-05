@@ -54,7 +54,7 @@ if (userProfile === null || followingCount === null) {
   }
     return (
         <div className="userContain">
-            <img className="profilePic" src={userProfile.images[0].url} alt="profile" />
+            <img className="profilePic" src={ userProfile.images? userProfile.images[0].url : "/public/luffy.jpeg"}alt="profile" />
             <a href={userProfile.external_urls.spotify}><h1 className="userName">{userProfile.display_name}</h1></a>
             <div className="userStats" >
       <p className="followingCount" ><span className="statCount">{followingCount}</span><br/>Following</p>
