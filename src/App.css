@@ -41,11 +41,15 @@
 }
 
 .logo {
-  margin-top: 15%;
-  height: 6em;
-  padding: 1.5em;
+  margin-top: 12em;
+  height: 8em;
+  padding: 1.3em;
   will-change: filter;
   transition: filter 300ms;
+}
+
+.landing-logo {
+  margin-top: 7.4em;
 }
 
 .logo:hover {
@@ -61,13 +65,21 @@
   font-weight: 600
 }
 
+.hometitle {
+  margin-top: 0 !important;
+}
+
 .desc-container {
   font-size: 16px;
+  width: 45vw;
+  max-width: 550px;
+  min-width: 280px;
+  margin: 0 auto;
 }
 
 .desc {
-  width: 60%;
-  margin: 0 auto;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 
@@ -109,12 +121,24 @@
   }
 
   .musiconn {
-    font-size: 24px;
+    font-size: 30px;
     left: -5%;
   }
 
   .trackHeader {
     font-size: 36px;
+  }
+
+  .logo {
+    margin-top: 30%;
+  }
+
+  .landing-logo{
+    margin-top: 15%;
+  }
+
+  .logInWithSpotifyWrapper {
+    display: none;
   }
 
 }

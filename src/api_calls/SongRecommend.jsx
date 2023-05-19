@@ -63,7 +63,7 @@ export const Recommendations = () => {
   return (
     <div>
       <h1 className="recomTitle">Find Tracks</h1>
-      <ul>
+      <ul className="recomContainerUL">
         <div className="recomContainer">
           {recommendations.map((track, index) => (
             <li key={index} className="recomTile">
