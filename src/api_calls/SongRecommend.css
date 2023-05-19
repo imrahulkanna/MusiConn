@@ -2,6 +2,9 @@
   margin-top: 80px;
 }
 
+.recomContainerUL {
+  padding: 0;
+}
 .recomContainer {
   display: flex;
   flex-wrap: wrap;

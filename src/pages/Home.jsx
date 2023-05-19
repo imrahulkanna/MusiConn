@@ -12,11 +12,11 @@ function Home() {
       <div>
         <img src={spotifyLogo} className="logo" alt="Spotify logo" />
       </div>
-      <h1>MusiConn</h1>
+      <h1 className="hometitle">MusiConn</h1>
       <div className="desc-container">
         <div className="desc">
-            Connect with people who love the same song, share how it makes you feel,
-            or just enjoy a moment together
+            Plug into MusiConn and let the magic of music bring you closer to your
+            tribe of music enthusiasts.
         </div>
       </div>
       <div className="card">
