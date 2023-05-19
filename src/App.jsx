@@ -7,6 +7,7 @@ import Page from "./pages/Page";
 import ChatRoom from "./pages/ChatRoom";
 import ChatList from "./pages/ChatList";
 import ChatView from "./pages/ChatView";
+import Connections  from "./pages/Connections";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <Route path='/chatlist' element={<ChatList />} />
       <Route path='/chatview' element={<ChatView />} />
       <Route path='/chatroom' element={<ChatRoom />} />
-
+      <Route path='/connections' element={<Connections />} />
       <Route path='/profile/:userId' element={<Page />} />
     </Routes>
   );
