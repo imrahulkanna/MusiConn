@@ -87,9 +87,11 @@ export let CurrentTrack = () => {
         <p className="currTrackAlbum">Album: {albumName}</p>
         <p className="currTrackArtists">Artists: {artistName}</p>
       </div>
-      <Link to="/chatroom" state={trackdata}>
-        <button>Join Chat Room</button>
-      </Link>
+      <div>
+        <Link to="/chatroom" state={trackdata}>
+          <button>Join Chat Room</button>
+        </Link>
+      </div>
     </div>
   );
 };

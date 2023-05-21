@@ -18,8 +18,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-router-dom": "^6.9.0",
-    "styled-components": "^5.3.10"
+    "react-router-dom": "^6.11.2",
+    "styled-components": "^5.3.10",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
