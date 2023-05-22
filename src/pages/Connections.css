@@ -1,10 +1,10 @@
-.card-container {
+.connections-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
   
-  .card {
+  .connections-card {
     width: 250px;
     padding: 20px;
     margin: 20px;
@@ -44,7 +44,7 @@
   }
 
 
-.button {
+.connections-button {
     margin-top: 12px;
     padding: 5px 15px;
     background-color: #4caf50;
@@ -58,6 +58,6 @@
     cursor: pointer;
   }
   
-  .button:hover {
+  .connections-button:hover {
     background-color: #45a049;
   }

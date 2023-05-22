@@ -54,7 +54,7 @@ if (userProfile === null || followingCount === null) {
   }
     return (
         <div className="userContain">
-            <img className="profilePic" src={ userProfile.images? userProfile.images[0].url : "/public/luffy.jpeg"}alt="profile" />
+            <img className="profilePic" src={ userProfile.images? userProfile.images[0].url : getAvatarUrl(userProfile.id)} alt="profile" />
             <a href={userProfile.external_urls.spotify}><h1 className="userName">{userProfile.display_name}</h1></a>
             <div className="userStats" >
       <p className="followingCount" ><span className="statCount">{followingCount}</span><br/>Following</p>
@@ -65,6 +65,17 @@ if (userProfile === null || followingCount === null) {
     );
 
 };
+const getAvatarUrl = (userId) => {
+  const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+  const avatarStyle = 'male'; // or 'female' for different styles
+  const avatarOptions = 'mood[]=happy'; // customize options as needed
+  const avatarSize = 200;
+
+  const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+
+  return avatarUrl;
+};
+
 
 
 export default UserContainer;

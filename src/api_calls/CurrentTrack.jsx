@@ -87,9 +87,12 @@ export let CurrentTrack = () => {
         <p className="currTrackAlbum">Album: {albumName}</p>
         <p className="currTrackArtists">Artists: {artistName}</p>
       </div>
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Link to="/chatroom" state={trackdata}>
-          <button>Join Chat Room</button>
+          <button style={{marginRight:'15px'}}>Join Chat Room</button>
+        </Link>
+        <Link to="/trackrecommendations" >
+          <button style={{marginLeftt:'15px'}}>Similar Tracks</button>
         </Link>
       </div>
     </div>

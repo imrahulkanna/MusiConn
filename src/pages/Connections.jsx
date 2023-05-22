@@ -69,9 +69,9 @@ let Connections =  () => {
 
     return (
         <><h1>My Connections</h1> 
-        <div class="card-container">
+        <div class="connections-card-container">
             {connectionList.map((connection) => (
-                (<div key={connection.id} class="card">
+                (<div key={connection.id} class="connections-card">
                     <ConnectionPreview userId={connection.userId} logedInUser={userId} />
                 </div>)
             ))}
@@ -119,7 +119,7 @@ function ConnectionPreview({ userId, logedInUser })
             <img src={profilePictureUrl} alt={userId} className="profile-photo"/>
             <h2 className="profile-name">{displayName}</h2>
         </Link>
-        <Link to="/chatview" state={data}  className="button">
+        <Link to="/chatview" state={data}  className="connections-button">
             Chat
         </Link>
         </div>

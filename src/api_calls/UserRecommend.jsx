@@ -83,7 +83,8 @@ function UserRecommend() {
                     src={
                       userDetails.images.length > 0
                         ? userDetails.images[0].url
-                        : "./public/luffy.jpeg"
+                        :getAvatarUrl(userDetails.id)
+                        // : "./public/luffy.jpeg"
                     }
                     alt="profile pic"
                     className="profile-img"
@@ -109,7 +110,21 @@ function UserRecommend() {
         </div>
       </div>
     </div>
+
   );
+  
 }
+
+const getAvatarUrl = (userId) => {
+  const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+  const avatarStyle = 'male'; // or 'female' for different styles
+  const avatarOptions = 'mood[]=happy'; // customize options as needed
+  const avatarSize = 200;
+
+  const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+
+  return avatarUrl;
+};
+
 
 export default UserRecommend;
