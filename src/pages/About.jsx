@@ -16,6 +16,7 @@ const developers = [
     email: "tharungade2001@gmail.com",
     github: "tharungade",
     linkedin: "tharungade",
+    intro: "Talks about Coding, Problem Solving, DSA, Backend Development and Stoicism"
   },
   {
     name: "Rahul Kanna",
@@ -23,6 +24,7 @@ const developers = [
     email: "kannarahul05@gmail.com",
     github: "imrahulkanna",
     linkedin: "rahulkanna",
+    intro: "Talks about Coding, Python, React, WebApp Development, Machine Learning and Anime"
   },
   {
     name: "Farazuddin Mohammed",
@@ -30,6 +32,7 @@ const developers = [
     email: "farazuddinmohammed05@gmail.com",
     github: "thefarazxr",
     linkedin: "farazuddinmohammed",
+    intro: "Talks about Product Development, WebApp Development, UI/UX, AI tools, and Productivity"
   },
 ];
 
@@ -53,6 +56,7 @@ const AboutUs = () => {
                 className="devProfilePic"
               />
               <h2 className="devName">{developer.name}</h2>
+              <p>{developer.intro}</p>
               <div className="social-links">
                 <a href={`mailto:${developer.email}`}>
                   <FontAwesomeIcon icon={faEnvelope} beatFade size="lg" style={{color: "#ffffff",}} />

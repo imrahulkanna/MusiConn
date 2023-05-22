@@ -1,48 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-// export let NavBar = () => {
-//   const [showMenu, setShowMenu] = useState(false);
-
-//   const handleMenuToggle = () => {
-//     setShowMenu(!showMenu);
-//   };
-//   const userId = localStorage.getItem('userId');
-
-//   return (
-//     <nav>
-//       <div className="nav-container">
-//         <Link to="/app">
-//           <div className="navTitle">MusiConn</div>
-//         </Link>
-//         <div className="hamburger" onClick={handleMenuToggle}>
-//           <div className="hamburger-line"></div>
-//           <div className="hamburger-line"></div>
-//           <div className="hamburger-line"></div>
-//         </div>
-//         <ul className={`navbar ${showMenu ? "active" : ""}`}>
-//           <li>
-//             <Link to="/userrecommendations" >Recommend Users</Link>
-//           </li>
-//           <li>
-//             <Link to="/trackrecommendations">Recommend Tracks</Link>
-//           </li>
-//           <li>
-//             <Link to={`/profile/${userId}`}>My Profile</Link>
-//           </li>
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// };
+const currUserProfileEndpoint = "https://api.spotify.com/v1/me";
 
 export let NavBar = () => {
-  const userId = localStorage.getItem("userId");
+  const [userID, setUserID] = useState("");
   const [showLinks, setShowLinks] = useState(false);
 
+  useEffect(() => {
+    let accessToken = localStorage.getItem("accessToken");
+    const getCurrUserProfile = async () => {
+      const response = await fetch(currUserProfileEndpoint, {
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      });
+      if (response.status === 401) {
+        refreshAccessToken();
+        accessToken = localStorage.getItem("accessToken");
+        await getCurrUserProfile();
+      }
+      const currUserDetails = await response.json();
+
+      setUserID(currUserDetails.id);
+    };
+
+    getCurrUserProfile();
+  }, []);
+  
   const handleToggle = () => {
     setShowLinks(!showLinks);
   };
@@ -67,7 +55,7 @@ export let NavBar = () => {
             </Link>
           </div>
           <div className="pageLinksdiv">
-            <Link to={`/profile/${userId}`} className="pageLinks">
+            <Link to={`/profile/${userID}`} className="pageLinks">
               My Profile
             </Link>
           </div>
