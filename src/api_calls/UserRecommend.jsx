@@ -83,12 +83,9 @@ function UserRecommend() {
                     src={
                       userDetails.images.length > 0
                         ? userDetails.images[0].url
-<<<<<<< HEAD
+
                         :getAvatarUrl(userDetails.id)
                         // : "./public/luffy.jpeg"
-=======
-                        : luffyPic
->>>>>>> 830b7c8dc07c9ab6e129f7deadc778a48eae7609
                     }
                     alt="profile pic"
                     className="profile-img"
