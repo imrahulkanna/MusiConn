@@ -8,6 +8,7 @@ import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FireStoreWrite } from "../api_calls/userDataFetcher";
 import "../App.css";
 
+
 const Landing = () => {
   useEffect(() => {
     onPageLoad();

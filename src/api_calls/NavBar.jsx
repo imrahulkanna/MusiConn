@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import musiconnLogo from "./../assets/musiconn.png"
 
 const currUserProfileEndpoint = "https://api.spotify.com/v1/me";
 
@@ -39,7 +40,8 @@ export let NavBar = () => {
       <div className="navBar">
         <div className="navTitle">
           <Link to="/app" className="link">
-            MusiConn
+            {/* MusiConn */}
+            <img class="mainLogo" src={musiconnLogo} alt=""  />
           </Link>
         </div>
         <div className={`navButtons ${showLinks ? "show" : ""}`}>
