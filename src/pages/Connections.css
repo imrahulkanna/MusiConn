@@ -1,0 +1,68 @@
+.connections-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .connections-card {
+    width: 250px;
+    padding: 20px;
+    margin: 20px;
+    /* background-color: #ffffff; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .profile-card {
+    background-color: #242424;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(13, 12, 12, 0.041);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(4, 240, 4);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .profile-link:hover {
+    transform: scale(1.05);
+  }
+  
+  .profile-photo {
+    margin-top: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+
+.connections-button {
+    margin-top: 12px;
+    padding: 5px 15px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .connections-button:hover {
+    background-color: #45a049;
+  }
+
+  .connection-heading
+  {
+    margin: 80px 0px 0px;
+  }

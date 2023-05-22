@@ -82,7 +82,23 @@
   font-size: 18px;
 }
 
+.aboutusButton {
+  padding: 0;
+  position: absolute;
+  left: 50vw;
+  transform: translate(-50%);
+  top: 88vh;
+  font-size: 20px;
+}
 
+.aboutusButton button {
+  padding: 0;
+}
+
+.aboutusButton button:hover {
+  border: none;
+  color: var(--color-forestgreen);
+}
 
 @keyframes logo-spin {
   from {

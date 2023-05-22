@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, RealtimeDatabase } from "../../Firebase";
 import { refreshAccessToken } from "../pages/config";
 import { Link } from 'react-router-dom';
-import { ref, onValue} from "firebase/database";
+import { NavBar } from '../api_calls/NavBar';   
 import { 
     collection,
     or,
@@ -10,7 +10,7 @@ import {
     where,
     query,
     getDocs } from "firebase/firestore";
-
+import './Connections.css'
 const currentUserDataEndPoint = 'https://api.spotify.com/v1/me';
 const userProfileEndPoint = 'https://api.spotify.com/v1/users';
 
@@ -68,13 +68,17 @@ let Connections =  () => {
     }, []);
 
     return (
-        <div>
-                {connectionList.map((connection) => (
-                   (<div key={connection.id} >
-                       <ConnectionPreview userId={connection.userId} logedInUser = {userId}/>
-                    </div>)
-                ))}
+        <>
+        <NavBar/>
+        <h1 className="connection-heading">My Connections</h1> 
+        <div className="connections-card-container">
+            {connectionList.map((connection) => (
+                (<div key={connection.id} className="connections-card">
+                    <ConnectionPreview userId={connection.userId} logedInUser={userId} />
+                </div>)
+            ))}
         </div>
+        </>
     );
 }
 
@@ -98,7 +102,10 @@ function ConnectionPreview({ userId, logedInUser })
                 await getUserData();
             }
             const data = await response.json();
-            setProfilePictureUrl(data.images[0].url);
+            const imgUrl = data.images.length > 0
+                        ? data.images[0].url
+                        :getAvatarUrl(data.id);
+            setProfilePictureUrl(imgUrl);
             setDisplayName(data.display_name);
         };
             getUserData();
@@ -112,14 +119,28 @@ function ConnectionPreview({ userId, logedInUser })
 
     return (
         <>
-        <Link to={'/profile/'  + userId}>
-            <img src={profilePictureUrl} alt={userId} />
-            <h2>{displayName}</h2>
+        <div className="profile-card">
+        <Link to={'/profile/'  + userId} className="profile-link">
+            <img src={profilePictureUrl} alt={userId} className="profile-photo"/>
+            <h2 className="profile-name">{displayName}</h2>
         </Link>
-        <Link to="/chatview" state={data}>
-            chat
+        <Link to="/chatview" state={data}  className="connections-button">
+            Chat
         </Link>
+        </div>
         </>
     )
 }
+
+const getAvatarUrl = (userId) => {
+    const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+    const avatarStyle = 'male'; // or 'female' for different styles
+    const avatarOptions = 'mood[]=happy'; // customize options as needed
+    const avatarSize = 200;
+  
+    const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+  
+    return avatarUrl;
+ };
+
 export default Connections

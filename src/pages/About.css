@@ -1,0 +1,78 @@
+.about-us {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.aboutusTitle {
+  margin-bottom: 2rem;
+}
+
+.developers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.developer {
+  width: 310px;
+  margin: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.developer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5px;
+  background: linear-gradient(to right, var(--color-forestgreen), transparent);
+  border-radius: 0 0 5px 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  transform: scale(0.85);
+}
+
+.developer:hover::after {
+  opacity: 1;
+}
+
+.devProfilePic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.devName {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #4285f4;
+}
+
+@media (max-width: 600px) {
+  .developer {
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+}

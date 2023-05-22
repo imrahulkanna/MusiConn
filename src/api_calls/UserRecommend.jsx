@@ -94,16 +94,19 @@ function UserRecommend() {
       <p className="prompt">with similar music taste</p>
       <div className="outer-container">
         <div className="flex-container">
-          {userDetailsArr.map((userDetails, track) => (
+          {userDetailsArr.length == 0?
+          <h2>Loading...</h2>:
+          userDetailsArr.map((userDetails, track) => (
             <div className="profile-card" key={track}>
               <div className="img-container">
                 <Link to={`/profile/${userDetails.id}`}>
-
                   <img
                     src={
                       userDetails.images.length > 0
                         ? userDetails.images[0].url
-                        : "./public/luffy.jpeg"
+
+                        :getAvatarUrl(userDetails.id)
+                        // : "./public/luffy.jpeg"
                     }
                     alt="profile pic"
                     className="profile-img"
@@ -129,7 +132,20 @@ function UserRecommend() {
         </div>
       </div>
     </div>
+
   );
+  
 }
+
+const getAvatarUrl = (userId) => {
+  const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+  const avatarStyle = 'male'; // or 'female' for different styles
+  const avatarOptions = 'mood[]=happy'; // customize options as needed
+  const avatarSize = 200;
+
+  const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+
+  return avatarUrl;
+};
 
 export default UserRecommend;

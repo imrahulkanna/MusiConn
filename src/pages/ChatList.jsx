@@ -3,6 +3,8 @@ import { db} from "../../Firebase";
 import { refreshAccessToken } from "../pages/config";
 import { groupBy, maxBy } from 'lodash';
 import { Link } from 'react-router-dom';
+import { NavBar } from "../api_calls/NavBar";
+import './ChatList.css'
 
 import { 
     collection,
@@ -75,11 +77,14 @@ let ChatList =  () => {
     }, []);
 
     return (
-        <div>
-                {chatList.map((message) => (
-                    <ChatPreview key={message.id} message={message} userId={userId} />
-                ))}
+        <>
+        <NavBar/>
+        <div className="chatlist">
+            {chatList.map((message) => (
+                <ChatPreview key={message.id} message={message} userId={userId} />
+            ))}
         </div>
+        </>
     );
 }
 
@@ -104,7 +109,10 @@ function ChatPreview({ message , userId }) {
                 await getUserData();
             }
             const data = await response.json();
-            setProfilePictureUrl(data.images[0].url);
+            const imgUrl = data.images.length > 0
+                        ? data.images[0].url
+                        :getAvatarUrl(data.id);
+            setProfilePictureUrl(imgUrl);
             setDisplayName(data.display_name);
         };
             getUserData();
@@ -117,15 +125,30 @@ function ChatPreview({ message , userId }) {
     }
     
     return (
-        <Link to="/chatview" state={data}>
-            <img src={profilePictureUrl} alt={displayName} />
-            <div>
-                <h2>{displayName}</h2>
-                <p>{text}</p>
-                <p>{createdAt?.toDate().toString()}</p>
-            </div>
-        </Link>
+        <>
+            <Link to="/chatview" state={data}>
+            <a href="/chatview" class="chat-container" state={data}>            
+                <img src={profilePictureUrl} alt={displayName} />
+                <div>
+                    <h2>{displayName}</h2>
+                    <p>{text}</p>
+                    <p>{createdAt?.toDate().toLocaleTimeString([], { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute:'2-digit', hour12: true})}</p>
+                </div>
+            </a>
+            </Link>
+        </>
     )
 }
+
+const getAvatarUrl = (userId) => {
+    const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+    const avatarStyle = 'male'; // or 'female' for different styles
+    const avatarOptions = 'mood[]=happy'; // customize options as needed
+    const avatarSize = 200;
+  
+    const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+  
+    return avatarUrl;
+ };
 
 export default ChatList

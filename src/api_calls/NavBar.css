@@ -34,10 +34,19 @@
   /* border: 1px solid blue; */
 }
 
+.pageLinksdiv:hover {
+  transform: scale(1.05);
+  border-bottom: 2.5px solid var(--color-forestgreen);
+}
+
 .pageLinks {
   font-size: 18px;
   font-weight: bold;
   /* border: 1px solid green; */
+}
+
+.pageLinks:hover {
+  color: white;
 }
 
 .hambugger-icon {
