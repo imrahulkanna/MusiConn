@@ -10,7 +10,7 @@ import {
     where,
     query,
     getDocs } from "firebase/firestore";
-
+import './Connections.css'
 const currentUserDataEndPoint = 'https://api.spotify.com/v1/me';
 const userProfileEndPoint = 'https://api.spotify.com/v1/users';
 
@@ -68,13 +68,15 @@ let Connections =  () => {
     }, []);
 
     return (
-        <div>
-                {connectionList.map((connection) => (
-                   (<div key={connection.id} >
-                       <ConnectionPreview userId={connection.userId} logedInUser = {userId}/>
-                    </div>)
-                ))}
+        <><h1>My Connections</h1> 
+        <div class="card-container">
+            {connectionList.map((connection) => (
+                (<div key={connection.id} class="card">
+                    <ConnectionPreview userId={connection.userId} logedInUser={userId} />
+                </div>)
+            ))}
         </div>
+        </>
     );
 }
 
@@ -112,13 +114,15 @@ function ConnectionPreview({ userId, logedInUser })
 
     return (
         <>
-        <Link to={'/profile/'  + userId}>
-            <img src={profilePictureUrl} alt={userId} />
-            <h2>{displayName}</h2>
+        <div className="profile-card">
+        <Link to={'/profile/'  + userId} className="profile-link">
+            <img src={profilePictureUrl} alt={userId} className="profile-photo"/>
+            <h2 className="profile-name">{displayName}</h2>
         </Link>
-        <Link to="/chatview" state={data}>
-            chat
+        <Link to="/chatview" state={data}  className="button">
+            Chat
         </Link>
+        </div>
         </>
     )
 }

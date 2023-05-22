@@ -3,7 +3,7 @@ import { db} from "../../Firebase";
 import { refreshAccessToken } from "../pages/config";
 import { groupBy, maxBy } from 'lodash';
 import { Link } from 'react-router-dom';
-
+import './ChatList.css'
 import { 
     collection,
     or,
@@ -117,14 +117,17 @@ function ChatPreview({ message , userId }) {
     }
     
     return (
-        <Link to="/chatview" state={data}>
+         <Link to="/chatview" state={data}>
+        <a href="/chatview" class="chat-container" state={data}>            
             <img src={profilePictureUrl} alt={displayName} />
             <div>
                 <h2>{displayName}</h2>
                 <p>{text}</p>
-                <p>{createdAt?.toDate().toString()}</p>
+                <p>{createdAt?.toDate().toLocaleTimeString([], { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute:'2-digit', hour12: true})}</p>
             </div>
+        </a>
         </Link>
+        
     )
 }
 
