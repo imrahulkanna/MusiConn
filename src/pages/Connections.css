@@ -61,3 +61,8 @@
   .connections-button:hover {
     background-color: #45a049;
   }
+
+  .connection-heading
+  {
+    margin: 80px 0px 0px;
+  }

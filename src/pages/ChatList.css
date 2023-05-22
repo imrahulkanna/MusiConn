@@ -51,4 +51,9 @@
   .chat-container a:hover {
     background-color: #fafafa;
   }
+
+  .chatlist
+  {
+    margin: 80px 0px 0px;
+  }
   

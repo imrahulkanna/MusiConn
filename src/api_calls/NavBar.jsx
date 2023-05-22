@@ -50,8 +50,13 @@ export let NavBar = () => {
           </div>
 
           <div className="pageLinksdiv">
-            <Link to="/trackrecommendations" className="pageLinks">
-              Recommend Tracks
+            <Link to="/chatlist" className="pageLinks">
+              Chats
+            </Link>
+          </div>
+          <div className="pageLinksdiv">
+            <Link to="/connections" className="pageLinks">
+              Connections
             </Link>
           </div>
           <div className="pageLinksdiv">
