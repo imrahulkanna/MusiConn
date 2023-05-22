@@ -1,0 +1,54 @@
+/* Container styles */
+.chat-container {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e6e6e6;
+    border :2px solid  rgba(208, 205, 205, 0.608);
+    border-radius: 25px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  .chat-container:last-child {
+    /* border-bottom: none; */
+  }
+  
+  /* Profile picture styles */
+  .chat-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  /* Text content styles */
+  .chat-container h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+  
+  .chat-container p {
+    font-size: 14px;
+    margin: 0;
+    text-align: left;
+    color: rgb(4, 240, 4);
+  }
+  
+  /* Timestamp styles */
+  .chat-container p:last-child {
+    color: #8c8c8c;
+  }
+  
+  /* Link styles */
+  .chat-container a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .chat-container a:hover {
+    background-color: #fafafa;
+  }
+  
