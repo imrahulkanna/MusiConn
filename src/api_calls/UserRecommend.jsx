@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
-import luffyPic from "../assets/luffy.jpeg";
 import "./UserRecommend.css";
 import { refreshAccessToken } from "../pages/config";
 import {Link} from "react-router-dom";
+import { db } from  "../../Firebase";
+
+import {
+  collection,
+  addDoc
+} from "firebase/firestore";
 
 const currUserProfileEndpoint = "https://api.spotify.com/v1/me";
 const userProfileEndpoint = "https://api.spotify.com/v1/users/";
 const userRecommendationsEndpoint = "https://musiconn.pythonanywhere.com/api/users/";
-
+const connectionsRef = collection(db, "connections");
 
 function UserRecommend() {
   const [userDetailsArr, setUserDetailsArr] = useState([]);
+  let [currentUser, setCurrentUser] = useState("");
 
   useEffect(() => {
     // getting details of the recommended users from Spotify API
@@ -45,8 +51,6 @@ function UserRecommend() {
       });
       const data = await response1.json();
       getRecommendedUserDetails(data.recommendations);
-
-
     };
 
     // getting currently logged user id from Spotify API
@@ -63,11 +67,26 @@ function UserRecommend() {
       }
       const currUserDetails = await response.json();
 
+      setCurrentUser(currUserDetails.id);
       getRecommendedUserIDs(currUserDetails.id); // to get recommeneded users' IDs for current user
     };
 
     getCurrUserProfile(); // to get curr user ID
   }, []);
+
+  const addFriend = async (index) =>
+  {
+    if (userDetailsArr.length == 0) return;
+    await addDoc(connectionsRef, {
+      status: "accept",
+      from: currentUser,
+      to: userDetailsArr[index].id
+    });
+
+    setUserDetailsArr(userDetailsArr.filter((item) => {
+      return item.id !== userDetailsArr[index].id;
+    }));
+  }
 
   return (
     <div>
@@ -75,7 +94,9 @@ function UserRecommend() {
       <p className="prompt">with similar music taste</p>
       <div className="outer-container">
         <div className="flex-container">
-          {userDetailsArr.map((userDetails, track) => (
+          {userDetailsArr.length == 0?
+          <h2>Loading...</h2>:
+          userDetailsArr.map((userDetails, track) => (
             <div className="profile-card" key={track}>
               <div className="img-container">
                 <Link to={`/profile/${userDetails.id}`}>
@@ -100,9 +121,8 @@ function UserRecommend() {
                 </p>
                 <p>
                   <button
-                    onClick={() => window.open("http://www.google.com")}
-                    className="add-friend"
-                  >
+                    onClick={() => addFriend(track)}
+                    className="add-friend">
                     Add Friend
                   </button>
                 </p>
@@ -127,6 +147,5 @@ const getAvatarUrl = (userId) => {
 
   return avatarUrl;
 };
-
 
 export default UserRecommend;

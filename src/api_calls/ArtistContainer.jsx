@@ -1,5 +1,6 @@
 import "./ArtistContainer.css";
 import { getDatabase, ref, child, get, onValue } from "firebase/database";
+import luffyPic from "../assets/luffy.jpeg";
 import React, { useState, useEffect } from 'react';
 // const userId = localStorage.getItem('userId');
 import { useParams } from "react-router-dom";
@@ -36,7 +37,7 @@ const ArtistContainer = () => {
              {topArtists && topArtists.slice(0, 13).map((artist, index) => (
                 <a href={artist.external_urls.spotify}>
                     <div className="artist" key={index}>
-                        <img  src={artist.images? artist.images[0].url: "/public/luffy.jpeg"} alt={artist.name} />
+                        <img  src={artist.images? artist.images[0].url: luffyPic} alt={artist.name} />
                         <p>{artist.name}</p>
                     </div>
                 </a>

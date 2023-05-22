@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, RealtimeDatabase } from "../../Firebase";
 import { refreshAccessToken } from "../pages/config";
 import { Link } from 'react-router-dom';
-import { ref, onValue} from "firebase/database";
+import { NavBar } from '../api_calls/NavBar';   
 import { 
     collection,
     or,
@@ -68,10 +68,12 @@ let Connections =  () => {
     }, []);
 
     return (
-        <><h1>My Connections</h1> 
-        <div class="connections-card-container">
+        <>
+        <NavBar/>
+        <h1 className="connection-heading">My Connections</h1> 
+        <div className="connections-card-container">
             {connectionList.map((connection) => (
-                (<div key={connection.id} class="connections-card">
+                (<div key={connection.id} className="connections-card">
                     <ConnectionPreview userId={connection.userId} logedInUser={userId} />
                 </div>)
             ))}
@@ -100,7 +102,10 @@ function ConnectionPreview({ userId, logedInUser })
                 await getUserData();
             }
             const data = await response.json();
-            setProfilePictureUrl(data.images[0].url);
+            const imgUrl = data.images.length > 0
+                        ? data.images[0].url
+                        :getAvatarUrl(data.id);
+            setProfilePictureUrl(imgUrl);
             setDisplayName(data.display_name);
         };
             getUserData();
@@ -126,4 +131,16 @@ function ConnectionPreview({ userId, logedInUser })
         </>
     )
 }
+
+const getAvatarUrl = (userId) => {
+    const apiBaseUrl = 'https://avatars.dicebear.com/api/';
+    const avatarStyle = 'male'; // or 'female' for different styles
+    const avatarOptions = 'mood[]=happy'; // customize options as needed
+    const avatarSize = 200;
+  
+    const avatarUrl = `${apiBaseUrl}${avatarStyle}/${userId}.svg?${avatarOptions}`;
+  
+    return avatarUrl;
+ };
+
 export default Connections

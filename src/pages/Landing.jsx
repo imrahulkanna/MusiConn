@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { onPageLoad } from "./config";
 import { NavBar } from "../api_calls/NavBar.jsx";
-import spotifyLogo from "../assets/spotify.svg";
+import musiconnLogo from "../../public/maskable_icon.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -20,7 +20,7 @@ const Landing = () => {
       <NavBar />
       <div>
         <img
-          src={spotifyLogo}
+          src={musiconnLogo}
           className="logo landing-logo"
           alt="Spotify logo"
         />
