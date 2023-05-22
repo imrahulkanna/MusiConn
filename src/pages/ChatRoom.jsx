@@ -6,7 +6,7 @@ import { db } from "../../Firebase";
 import './ChatRoom.css'
 
 
-const ChatRoom = (props) => {
+const ChatRoom = () => {
   const location = useLocation();
   const trackdata = location.state;
   const roomID = trackdata.trackID;

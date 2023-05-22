@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { onPageLoad } from "./config";
 import { NavBar } from "../api_calls/NavBar.jsx";
 import spotifyLogo from "../assets/spotify.svg";
@@ -5,7 +6,10 @@ import { Link } from "react-router-dom";
 import "../App.css";
 
 const Landing = () => {
-  onPageLoad();
+  useEffect(() => {
+    onPageLoad();
+  },[])
+
   return (
     <>
       <NavBar />
@@ -23,11 +27,11 @@ const Landing = () => {
           Let's groove and connect with fellow music lovers
         </div>
       </div>
-      <Link to="/currenttrack">
-        <div className="card">
+      <div className="card">
+        <Link to="/currenttrack">
           <button className="spotifyLogin">What's playing?</button>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </>
   );
 };
