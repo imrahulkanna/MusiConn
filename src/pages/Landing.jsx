@@ -3,6 +3,8 @@ import { onPageLoad } from "./config";
 import { NavBar } from "../api_calls/NavBar.jsx";
 import spotifyLogo from "../assets/spotify.svg";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
 const Landing = () => {
@@ -32,6 +34,11 @@ const Landing = () => {
           <button className="spotifyLogin">What's playing?</button>
         </Link>
       </div>
+      <Link className="aboutusButton" to="/aboutus">
+        <button title="About Us"> 
+          <FontAwesomeIcon icon={faCircleChevronDown} bounce size="2xl" />
+        </button>
+      </Link>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import luffyPic from "../assets/luffy.jpeg";
 import "./UserRecommend.css";
 import { refreshAccessToken } from "../pages/config";
 import {Link} from "react-router-dom";
@@ -78,12 +79,11 @@ function UserRecommend() {
             <div className="profile-card" key={track}>
               <div className="img-container">
                 <Link to={`/profile/${userDetails.id}`}>
-
                   <img
                     src={
                       userDetails.images.length > 0
                         ? userDetails.images[0].url
-                        : "./public/luffy.jpeg"
+                        : luffyPic
                     }
                     alt="profile pic"
                     className="profile-img"
@@ -99,7 +99,8 @@ function UserRecommend() {
                 <p>
                   <button
                     onClick={() => window.open("http://www.google.com")}
-                    className="add-friend">
+                    className="add-friend"
+                  >
                     Add Friend
                   </button>
                 </p>
